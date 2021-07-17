@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -132,12 +133,25 @@ public class MyImage extends AppCompatActivity {
                             }, 500);
 
                             Toast.makeText(MyImage.this,"Upload successful", Toast.LENGTH_LONG).show();
+                            //new from part 6
+                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                            while (!urlTask.isSuccessful());
+                            Uri downloadUrl = urlTask.getResult();
+
+                            //Log.d(TAG, "onSuccess: firebase download url: " + downloadUrl.toString()); //use if testing...don't need this line.
+                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),downloadUrl.toString());
+
+                            String uploadId = mDatabaseRef.push().getKey();
+                            mDatabaseRef.child(uploadId).setValue(upload);
+
+                            /*
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
                                     //in part 3 minute 14:35
                                     //taskSnapshot.getDownloadUrl().toString());
                                     taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
+                            */
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

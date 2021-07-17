@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -19,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImagesActivity extends AppCompatActivity {
+public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
 
@@ -54,6 +55,9 @@ public class ImagesActivity extends AppCompatActivity {
                 mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
 
                 mRecyclerView.setAdapter(mAdapter);
+
+                mAdapter.setOnItemClickListener(ImagesActivity.this);
+
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
 
@@ -63,5 +67,20 @@ public class ImagesActivity extends AppCompatActivity {
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onWhatEverClick(int position) {
+        Toast.makeText(this, "Whatever click at position: " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        Toast.makeText(this, "Delete click at position: " + position, Toast.LENGTH_SHORT).show();
     }
 }

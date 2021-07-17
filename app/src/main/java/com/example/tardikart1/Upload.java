@@ -3,6 +3,7 @@ package com.example.tardikart1;
 public class Upload {
     private String mName;
     private String mImageUrl;
+    private  String mKey;
 
     public Upload(){
         //empty constructor
@@ -31,5 +32,13 @@ public class Upload {
 
     public void setImageUrl(String imageUrl) {
         mImageUrl = imageUrl;
+    }
+
+    public String getKey() {
+        return mKey;
+    }
+
+    public void setKey(String key) {
+        mKey = key;
     }
 }

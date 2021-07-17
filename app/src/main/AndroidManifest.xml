@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TardikArt1">
-        <activity android:name=".MyImage"></activity>
+        <activity android:name=".ImagesActivity"></activity>
+        <activity android:name=".MyImage" />
         <activity android:name=".NewsPage" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -1,5 +1,7 @@
 package com.example.tardikart1;
 
+import com.google.firebase.database.Exclude;
+
 public class Upload {
     private String mName;
     private String mImageUrl;
@@ -34,10 +36,12 @@ public class Upload {
         mImageUrl = imageUrl;
     }
 
+    @Exclude
     public String getKey() {
         return mKey;
     }
 
+    @Exclude
     public void setKey(String key) {
         mKey = key;
     }

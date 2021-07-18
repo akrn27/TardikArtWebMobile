@@ -97,7 +97,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         Upload selectedItem = mUploads.get(position);
         String selectedKey = selectedItem.getKey();
 
-        StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
+        StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageURL());
         imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

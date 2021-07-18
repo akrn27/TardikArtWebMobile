@@ -3,37 +3,37 @@ package com.example.tardikart1;
 import com.google.firebase.database.Exclude;
 
 public class Upload {
-    private String mName;
-    private String mImageUrl;
+    private String mText;
+    private String mImageURL;
     private  String mKey;
 
     public Upload(){
         //empty constructor
     }
 
-    public Upload(String name, String imageUrl){
-        if (name.trim().equals("")) {
-            name = "Untitled";
+    public Upload(String text, String imageURL){
+        if (text.trim().equals("")) {
+            text = "Untitled";
         }
 
-        mName = name;
-        mImageUrl = imageUrl;
+        mText = text;
+        mImageURL = imageURL;
     }
 
-    public String getName() {
-        return  mName;
+    public String getText() {
+        return  mText;
     }
 
-    public void setName(String name) {
-        mName = name;
+    public void setText(String text) {
+        mText = text;
     }
 
-    public String getImageUrl() {
-        return mImageUrl;
+    public String getImageURL() {
+        return mImageURL;
     }
 
-    public void setImageUrl(String imageUrl) {
-        mImageUrl = imageUrl;
+    public void setImageURL(String imageURL) {
+        mImageURL = imageURL;
     }
 
     @Exclude

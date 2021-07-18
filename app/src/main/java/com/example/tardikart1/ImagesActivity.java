@@ -55,7 +55,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mAdapter.setOnItemClickListener(ImagesActivity.this);
 
         mStorage = FirebaseStorage.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("gamestoredb");
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override

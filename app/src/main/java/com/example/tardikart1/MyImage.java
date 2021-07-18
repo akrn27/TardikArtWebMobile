@@ -60,8 +60,9 @@ public class MyImage extends AppCompatActivity {
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        //change 1
+        mStorageRef = FirebaseStorage.getInstance().getReference("gamestoredb");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("gamestoredb");
 
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
